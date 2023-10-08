@@ -1,0 +1,88 @@
+package shape;
+
+public class circle {
+	private int radius;
+	public circle(int r) {
+		this.radius = r;
+	}
+	public double area() {
+		return 3.14*radius*radius;
+	}
+	public double perimeter() {
+		return 2*3.14*radius;
+	}
+	
+}
+
+
+
+package shape;
+
+public class square {
+	static int side;
+	public square(int a) {
+		this.side = a;
+	}
+	
+	public static double area() {
+		return side*side;
+	}
+
+}
+ 
+
+
+package shape;
+
+public class triangle {
+	private int l;
+	private int b;
+	public triangle(int l, int b) {
+		this.l=l;
+		this.b=b;
+	}
+	public double area() {
+		return 0.5 *l*b;
+	}
+}
+
+
+package main;
+
+import shape.*;
+import java.util.Scanner;
+
+public class lab2 {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter the side length of the square: ");
+        int squareSide = scanner.nextInt();
+        square sq = new square(squareSide);
+
+        System.out.println("Area of Square: ");
+        System.out.println(sq.area());
+
+        System.out.print("Enter the base length of the triangle: ");
+        int triangleBase = scanner.nextInt();
+        System.out.print("Enter the height of the triangle: ");
+        int triangleHeight = scanner.nextInt();
+        triangle tri = new triangle(triangleBase, triangleHeight);
+
+        System.out.println("Area of Triangle: ");
+        System.out.println(tri.area());
+
+        System.out.print("Enter the radius of the circle: ");
+        int circleRadius = scanner.nextInt();
+        circle cr = new circle(circleRadius);
+
+        System.out.println("Area of Circle: ");
+        System.out.println(cr.area());
+        System.out.println("Perimeter of Circle: ");
+        System.out.println(cr.perimeter());
+
+        // Close the scanner to free up resources
+        scanner.close();
+    }
+}
