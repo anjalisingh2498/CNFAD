@@ -1,0 +1,83 @@
+import java.util.*;
+abstract class Printer {
+	abstract void configuration();
+	abstract void display();
+}
+class DotMatrix extends Printer {
+	void configuration() {
+		System.out.println("Dot-Matrix configuration");
+	}
+	void display() {
+		System.out.println("Dot-Matrix display");;
+	}
+}
+class LaserJet extends Printer {
+	void configuration() {
+		System.out.println("Laser-Jet configuration");
+	}
+	void display() {
+		System.out.println("Laser-Jet display");
+	}
+}
+public class lab3A {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		Printer pr;
+		System.out.println("1.Dot-Matrix \n2.Laser-Jet \n3.Exit");
+		while(true) {
+			System.out.println("Enter ur choice:");
+			int ch = sc.nextInt();
+			switch (ch) {
+			case 1: {
+				pr = new DotMatrix();
+				pr.configuration();
+				pr.display();
+				break;
+			}
+			case 2: {
+				pr = new LaserJet();
+				pr.configuration();
+				pr.display();
+				break;
+			}
+			case 3:
+				System.out.println("Exit");
+				sc.close();
+				return;
+			default:
+				System.out.println("Invalid choice");
+				break;
+			}
+		}
+	}
+}
+
+
+
+
+
+abstract class Vehicle {
+	abstract void drive();
+}
+
+class Car extends Vehicle {
+	void drive() {
+		System.out.println("Car max speed 200km");
+	}
+}
+
+class Motorcycle extends Vehicle {
+	void drive() {
+		System.out.println("Motorcyle max speed 160km");
+	}
+}
+
+public class lab3B {
+	public static void main(String[] args) {
+		Vehicle c = new Car();
+		Vehicle m = new Motorcycle();
+		c.drive();
+		m.drive();
+	}
+}
+
